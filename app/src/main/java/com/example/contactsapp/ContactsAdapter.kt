@@ -12,8 +12,9 @@ class ContactsAdapter(
     class ViewHolder(private val itemViewBinding: ItemContactBinding) :
         RecyclerView.ViewHolder(itemViewBinding.root) {
             fun bind(rvData: RvData) = with(itemViewBinding) {
-                labelContactName.text = rvData.name
                 imgContactPhoto.imageAlpha = rvData.photo
+                labelContactName.text = rvData.name
+                labelContactNumber.text = rvData.number.toString()
             }
     }
 
