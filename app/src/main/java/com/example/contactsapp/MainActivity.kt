@@ -1,11 +1,41 @@
 package com.example.contactsapp
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.contactsapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        val recyclerView = binding.rvContacts
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        val data = ArrayList<RvData>()
+//            data.add()
+        repeat(20) {
+            data.add(
+                RvData(
+                    photo = it,
+                    name = "Title ${it + 1}",
+                    number = it
+                )
+            )
+        }
+
+        val adapter = ContactsAdapter(data)
+
+        recyclerView.adapter = adapter
+
     }
+
+
+    private fun getContacts() {
+
+    }
+
 }
