@@ -1,7 +1,9 @@
 package com.example.contactsapp
 
+import android.os.Build
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.contactsapp.databinding.ActivityMainBinding
@@ -34,8 +36,13 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    private fun getContacts() {
+    private fun requestPermission() {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS) != packageManager.PERMISSION_GRANTED) {
+        }
 
     }
 
+    private fun getContacts() {
+
+    }
 }
